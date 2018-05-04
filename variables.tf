@@ -10,7 +10,7 @@ variable "do_image" {
   default = "cio-2298-u16"
 }
 
-variable "do_agent_size" {
+variable "do_worker_size" {
   default = "2GB"
 }
 
@@ -32,6 +32,6 @@ variable "swarm_master_count" {
   default = "1"
 }
 
-variable "swarm_agent_count" {
+variable "swarm_worker_count" {
   default = "4"
 }

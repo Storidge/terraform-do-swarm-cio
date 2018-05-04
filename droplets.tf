@@ -7,7 +7,7 @@ resource "digitalocean_droplet" "docker_swarm_master" {
   name = "${format("${var.swarm_name}-master-%02d", count.index)}"
 
   image = "${data.digitalocean_image.swarm_image.image}"
-  size = "${var.do_agent_size}"
+  size = "${var.do_worker_size}"
   region = "${var.do_region}"
   private_networking = true
 
@@ -37,12 +37,12 @@ resource "digitalocean_droplet" "docker_swarm_master" {
   }
 }
 
-resource "digitalocean_droplet" "docker_swarm_agent" {
-  count = "${var.swarm_agent_count}"
-  name = "${format("${var.swarm_name}-agent-%02d", count.index)}"
+resource "digitalocean_droplet" "docker_swarm_worker" {
+  count = "${var.swarm_worker_count}"
+  name = "${format("${var.swarm_name}-worker-%02d", count.index)}"
 
   image = "${data.digitalocean_image.swarm_image.image}"
-  size = "${var.do_agent_size}"
+  size = "${var.do_worker_size}"
   region = "${var.do_region}"
   private_networking = true
 
