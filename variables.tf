@@ -7,7 +7,7 @@ variable "do_region" {
 }
 
 variable "do_image" {
-  default = "cio-2298-u16"
+  default = "cio-2313-u16"
 }
 
 variable "do_worker_size" {
