@@ -33,7 +33,7 @@ variable "swarm_master_count" {
 }
 
 variable "swarm_worker_count" {
-  default = "4"
+  default = "3"
 }
 
 variable "swarm_worker_storage_size" {
