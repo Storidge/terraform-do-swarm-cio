@@ -17,6 +17,7 @@ if [ $? -ne 0 ]; then
     ssh ${SSH_OPTIONS} ${SSH_USER}@${SSH_ADDRESS} "${command}"
 else
     echo "adding node to existing cluster... ${jointoken}"
+    scp ${SSH_OPTIONS} sds_key ${SSH_USER}@${SSH_ADDRESS}:sds_key.pem
     command="${jointoken} --ip ${PRIVATE_ADDRESS}"
     ssh ${SSH_OPTIONS} ${SSH_USER}@${SSH_ADDRESS} "${command}"
 fi
