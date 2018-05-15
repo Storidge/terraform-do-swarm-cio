@@ -9,7 +9,7 @@ SSH_OPTIONS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 # TODO: wait for ssh to become available
 sleep 30
 
-jointoken="$(ssh ${SSH_OPTIONS} ${SSH_USER}@${SSH_ADDRESS_SDS} 'cioctl join-token | grep "cioctl join"')"
+jointoken="$(ssh ${SSH_OPTIONS} ${SSH_USER}@${SSH_ADDRESS_SDS} 'cioctl join-token | grep "cioctl add"')"
 if [ $? -ne 0 ]; then
     echo "no cluster yet adding node to initial config..."
     scp ${SSH_OPTIONS} sds_key ${SSH_USER}@${SSH_ADDRESS}:sds_key.pem

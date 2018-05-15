@@ -7,7 +7,7 @@ variable "do_region" {
 }
 
 variable "do_image" {
-  default = "cio-2313-u16"
+  default = "cio-2326-u16"
 }
 
 variable "do_worker_size" {
@@ -33,7 +33,7 @@ variable "swarm_master_count" {
 }
 
 variable "swarm_worker_count" {
-  default = "3"
+  default = "4"
 }
 
 variable "swarm_worker_storage_size" {
