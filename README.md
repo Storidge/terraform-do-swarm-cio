@@ -39,13 +39,15 @@ To verify your configuration will work run:
 ```
 terraform plan
 ```
+
+### Deploy cluster
 If there are no errors, run the following command to build infrastructure:
 ```
 terraform apply
 ```
 Use the ssh key defined in `terraform.tfvars` to access the cluster.
 
-### Maintenance
+### Update state
 Check current infrastructure state:
 ```
 terraform show terraform.tfstate
@@ -56,6 +58,7 @@ If the infrastructure has been changed outside terraform, update the state infor
 terraform refresh
 ```						
 
+### Terminate cluster
 To terminate the cluster run:
 ```
 terraform destroy
