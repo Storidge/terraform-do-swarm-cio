@@ -1,0 +1,4 @@
+do_token = "DO_API_TOKEN"
+pub_key = "PATH_TO_PUBLIC_KEY"
+pvt_key = "PATH_TO_PRIVATE_KEY"
+ssh_fingerprint = "MD5_FINGERPRINT_OF_PUBLIC_KEY"
