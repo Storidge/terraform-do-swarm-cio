@@ -1,5 +1,7 @@
 # Terraform Template for Digital Ocean Swarm with Storidge CIO
-This repo contains a [Terraform](https://www.terraform.io/) template for generating and managing clusters of DO droplets with the community edition of the [Storidge CIO](http://storidge.com/docs/) software.
+This repo contains a [Terraform](https://www.terraform.io/) project for generating and managing clusters of DO droplets with the community edition of the [Storidge CIO](http://docs.storidge.com) software.
+
+The terraform code will look for a Digital Ocean image to launch the cloud instances. This image can be easily created by following the steps in the [packer-cio](https://github.com/Storidge/packer-cio) repo.  
 
 ## Configuration
 Default cluster configuration (can be altered in the `variables.tf`, `droplets.tf`, and `volumes.tf` files):
