@@ -1,13 +1,15 @@
 # Digital Ocean Setup
 
-variable "do_token" {}
+variable "do_token" {
+  default = ""
+}
 
 variable "do_region" {
   default = "sfo2"
 }
 
 variable "do_image" {
-  default = "cio-3047-u16"
+  default = "cio-3084-u16"
 }
 
 variable "do_worker_size" {
