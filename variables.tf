@@ -1,7 +1,19 @@
 # Digital Ocean Setup
 
 variable "do_token" {
-  default = ""
+  default = "do_token"
+}
+
+variable "ssh_fingerprint" {
+  default = "ssh_fingerprint"
+}
+
+variable "pub_key" {
+  default = "pub_key"
+}
+
+variable "pvt_key" {
+  default = "pvt_key"
 }
 
 variable "do_region" {
@@ -17,7 +29,7 @@ variable "do_worker_size" {
 }
 
 variable "do_ssh_key_public" {
-  default = "~/.ssh/id_rsa.pub"
+  default = "/root/.ssh/id_rsa.pub"
 }
 
 variable "do_user" {

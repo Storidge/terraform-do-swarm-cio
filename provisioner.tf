@@ -21,12 +21,14 @@ resource "null_resource" "worker_init" {
 
   triggers = {
     cluster_instance_ids = digitalocean_droplet.docker_swarm_worker.*.id[count.index]
+    cluster_instance_ips = digitalocean_droplet.docker_swarm_worker.*.ipv4_address[count.index]
+    cluster_user_id = var.do_user
   }
 
   connection {
     timeout = "2m"
-    host    = digitalocean_droplet.docker_swarm_worker.*.ipv4_address[count.index]
-    user    = var.do_user
+    host    = "${self.triggers.cluster_instance_ips}"
+    user    = "${self.triggers.cluster_user_id}"
     agent   = true
   }
 
