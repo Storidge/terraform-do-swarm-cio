@@ -60,6 +60,46 @@ If the infrastructure has been changed outside terraform, update the state infor
 terraform refresh
 ```						
 
+### Access droplets, images, and cluster through doctl CLI
+Download and set up [here](https://github.com/digitalocean/doctl)
+
+List all droplets:
+```
+doctl compute droplet list
+```
+
+List all images:
+```
+doctl compute image list
+```
+
+Locate master node public IP and ssh to it:
+```
+ssh root@public_IP
+```
+
+### Scale cluster up/down
+On master node, list all nodes:
+```
+cio node ls
+```
+
+Scale down:
+```
+cioctl node remove node_name_or_node_IP
+```
+
+Scale up by getting the join token from the master node:
+```
+root@t1:~# cioctl join-token
+    cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
+```
+
+Run join token on desired droplet node:
+```
+root@t5:~# cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
+```
+
 ### Terminate cluster
 To terminate the cluster run:
 ```
