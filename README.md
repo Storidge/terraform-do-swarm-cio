@@ -79,25 +79,20 @@ ssh root@public_IP
 ```
 
 ### Scale cluster up/down
-On master node, list all nodes:
+Under `variables.tf`, change the `default` value under `variable "swarm_worker_count"` (minimum 2):
 ```
-cio node ls
-```
-
-Scale down:
-```
-cioctl node remove node_name_or_node_IP
+variable "swarm_worker_count" {
+  default = "4"
+}
 ```
 
-Scale up by getting the join token from the master node:
+Apply terraform changes:
 ```
-root@t1:~# cioctl join-token
-    cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
-```
-
-Run join token on desired droplet node:
-```
-root@t5:~# cioctl node add 192.168.3.122 909ab2a6afad21f26369c00a8ba7307e-1f13164a
+terraform init
+...
+terraform plan
+...
+terraform apply
 ```
 
 ### Terminate cluster
