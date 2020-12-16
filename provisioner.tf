@@ -41,7 +41,7 @@ resource "null_resource" "worker_init" {
   }
 
   provisioner "local-exec" {
-    command = "scripts/worker.init.sh ${var.do_user} ${digitalocean_droplet.docker_swarm_worker.*.ipv4_address[count.index]} ${digitalocean_droplet.docker_swarm_worker.*.ipv4_address_private[count.index]} ${digitalocean_droplet.docker_swarm_master.*.ipv4_address[0]}"
+    command = "bash scripts/worker.init.sh ${var.do_user} ${digitalocean_droplet.docker_swarm_worker.*.ipv4_address[count.index]} ${digitalocean_droplet.docker_swarm_worker.*.ipv4_address_private[count.index]} ${digitalocean_droplet.docker_swarm_master.*.ipv4_address[0]}"
   }
 
   depends_on = [
