@@ -27,8 +27,8 @@ resource "null_resource" "worker_init" {
 
   connection {
     timeout = "2m"
-    host    = "${self.triggers.cluster_instance_ips}"
-    user    = "${self.triggers.cluster_user_id}"
+    host    = "self.triggers.cluster_instance_ips"
+    user    = "self.triggers.cluster_user_id"
     agent   = true
   }
 
